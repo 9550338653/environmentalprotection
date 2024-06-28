@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+<style>
+   
+   *{
+    font-family: Roboto;
+    
+}
+
+
+.flip-card {
+    width: 100%;
+    height:300px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    margin-top: 7%;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   background-color: white;
+   color:black;
+
+
+
+}
+
+.card-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    padding:2%;
+}
+
+.flip-card-back {
+   
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: whitesmoke;
+
+}
+
+.flip-card-back h3 {
+    margin-top: 0;
+
+}
+
+nav a{
+font-size:20px;
+}
+.backgroundimageContainer{
+    background: url("https://res.cloudinary.com/dcyd67xgz/image/upload/v1705413891/ban_ifgmbj.jpg");
+    height:75vh;
+    background-size: cover;
+}
+.name{
+    background-color: whitesmoke ;
+    border-radius: 25px;
+    position: absolute;
+    width: 75%;
+    height: 300px;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: rgb(0, 0, 0); 
+    background: rgba(243, 242, 242, 0.221);
+    color: white;
+    
+}
+.name h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.card{
+    border-radius: 20px;
+    /* background-color: #A5DEF2; */
+    /* background: linear-gradient(to bottom,#A5DEF2,#5BAEB7); */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+    /* box-shadow:5px 5px  #A5DEF2; */
+   width: 300px;
+
+
+}
+
+.headingsection{
+    text-align: center;
+    text-decoration: underline;
+    background-color: rgba(14, 41, 43, 0.073);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+
+
+
+}
+.parasection{
+    text-align: center;
+   
+}
+.para{
+    font-size: 20px;
+}
+.containersection{
+    padding: 2%;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    /* border-width:4px ;
+    border-style: solid; */
+    /* border-color:rgba(6, 205, 255, 0.99); */
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+}
+.imagesection{
+    text-align: center;
+
+}
+.imagesection img{
+    height:190px;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+
+.containersection p{
+    font-size:20px;
+    
+}
+
+.webandtechnologysection{
+/* background: linear-gradient(to bottom,rgba(206, 82, 102, 0.631),rgba(232, 62, 172, 0.386),rgba(255, 192, 203, 0.523)); */
+/* background: linear-gradient(to bottom,rgba(254, 2, 78, 0.31),rgba(2, 181, 252, 0.259)); */
+background-color: #4159d078;
+background-image: linear-gradient(43deg, #4159d083 0%, #c850c07c 46%, #ffcd706f 100%);
+margin: 10px;
+padding: 20px;
+border-radius: 25px;
+
+}
+.skillscard{
+    width: 100%;
+    margin: 5px;
+    padding: 3%;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+}
+
+.skillscard h3{
+    color:rgba(4, 165, 252, 0.992)
+}
+.plcard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: darkblue;
+    margin: 3%;
+    padding: 2%;
+    text-align: center;
+}
+.plcard img{
+    width: 350px;
+    height: 200px;
+
+}
+.plcard:hover{
+    background-color:rgba(164, 99, 109, 0.291);
+}
+.experiencesection{
+    padding: 2%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fea704fb;
+
+
+}
+.experiencesection:hover{
+    background-color: #ffcd707b;
+
+}
+.picture{
+    width: 100%;
+    background-image: url("https://res.cloudinary.com/dcyd67xgz/image/upload/v1704264383/es_bmwuw4.jpg");
+  background-size: cover; 
+  height: 60vh;   
+}
+.projectssection{
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 3px;
+    margin:5px;
+    padding: 3%;
+    border-color: #01b2f8fc;
+    color:rgba(0, 0, 0, 0.534)
+}
+.contactsection{
+    background-color: rgb(98, 98, 109);
+    color:whitesmoke;
+    text-align: center;
+    justify-content: center;
+    padding: 2%;
+}
+.section{
+    text-align: center;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+.imageOne{
+    width:75px;
+    border-radius: 50px;
+}
+.paraone{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 25px;
+
+}
+</style>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+            <div class="container">
+            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705413140/envpro_zjojjd.jpg"/ class="imageOne">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                  <a class="nav-link" href="#">Home</a>
+                  <a class="nav-link" href="#Introduction">Introduction</a>
+                  <a class="nav-link" href="#Causes">Causes</a>
+                  <a class="nav-link" href="#Ways">Ways</a>
+                   <a class="nav-link" href="#contact">Contact</a>
+                </div>
+              </div>
+              </div>
+          </nav> 
+    
+       
+    
+          <div class="backgroundimageContainer d-flex flex-column justify-content-center">
+            <div class="text-center">
+                <div class="name d-flex flex-column justify-content-center">
+                    <div class="text-center">
+                    <h1 style="color:#111">Environmental Protection</h1>
+                </div>
+                </div>
+          </div>
+        </div>
+        <br/>
+        <!-- <div class="container col-12" id="aboutMe">
+            <h3 style="color: rgba(11, 11, 11, 0.975);text-decoration: underline;">Introduction</h3>
+        </div>
+     
+        
+        <div class="container col-12">
+            <p class="para">
+                Environmental protection refers to the practice of safeguarding and managing the natural world to prevent or minimize the negative impact of human activities. It involves measures and initiatives aimed at preserving ecosystems, biodiversity, and natural resources, as well as mitigating and adapting to environmental challenges such as pollution, climate change, deforestation, and habitat destruction.The goal of environmental protection is to maintain the balance of ecosystems, ensure sustainable development, and safeguard the well-being of both present and future generations. It encompasses a wide range of activities, policies, and practices, including conservation efforts, waste reduction, sustainable resource management, pollution control, and the promotion of renewable energy sources.
+                Governments, non-governmental organizations (NGOs), businesses, and individuals all play crucial roles in environmental protection. International cooperation and agreements are also essential for addressing global environmental issues. Ultimately, the concept of environmental protection recognizes the interconnectedness of all living organisms and the importance of preserving the Earth's natural systems for a healthier and more sustainable future.        </div>
+        <br/> -->
+
+        <div class="container col-12" id="Introduction">
+            <h3 style="color: rgba(11, 11, 11, 0.975);text-decoration: underline;">Pollution</h3>
+        </div>
+     
+        
+        <div class="container col-12">
+            <p class="paraone">
+                Pollution refers to the introduction of contaminants or substances into the environment that cause adverse changes. These contaminants, often referred to as pollutants, can have harmful effects on the natural balance of ecosystems, air, water, soil, and living organisms. Pollution can be a result of human activities, such as industrial processes, transportation, agriculture, and improper waste disposal.
+                There are various types of pollution, including air pollution (emission of harmful substances into the air), water pollution (contamination of water bodies by pollutants), soil pollution (introduction of harmful substances into the soil), and noise pollution (excessive or disturbing noise that disrupts the environment). Additionally, pollution can be categorized as point source pollution (coming from a specific identifiable source) or non-point source pollution (diffuse sources that are challenging to pinpoint).
+                The consequences of pollution can be severe, leading to environmental degradation, health problems for humans and wildlife, loss of biodiversity, and disruptions to ecosystems. Efforts to control and prevent pollution involve regulations, technological advancements, public awareness, and sustainable practices to minimize the negative impact of human activities on the environment.
+        
+        <br/>
+        <div class="container col-12" id="Types">
+            <h3 style="text-decoration: underline;">Types of Pollution</h3>
+        </div>
+        <br/>
+             <div class="typessection">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-4 col-lg-3">
+                    <div class="plcard">
+                        <div class="text-center">
+                        <h3>Air Pollution</h3>
+                        <div class="p-4">
+                        <h5>Air pollution refers to the contamination of the atmosphere by harmful substances, primarily caused by human activities like industrial processes and vehicle emissions, leading to adverse effects on health and the environment.</h5>
+                    </div>
+                </div>
+                </div>
+                </div> 
+               
+               
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="plcard">
+                        <div class="text-center">
+                        <h3>Water Pollution</h3>
+                        <div class="p-4">
+                            <h5>Water pollution is the introduction of harmful substances into water bodies, such as rivers, lakes, and oceans, resulting from industrial discharges, agricultural runoff, and improper waste disposal. It poses a threat to aquatic ecosystems and human health.</h5>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="plcard">
+                        <div class="text-center">
+                        <h3>Noise Pollution</h3>
+                        <div class="p-4">
+                            <h5>Noise pollution is the presence of excessive or disruptive sounds in the environment, often caused by urban activities, industrial processes, and transportation. It can negatively impact human health, wildlife, and overall well-being.</h5>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="plcard">
+                        <div class="text-center">
+                        <h3>Soil Pollution</h3>
+                        <div class="p-4">
+                            <h5>Soil pollution is the contamination of the soil by harmful substances, including industrial chemicals, pesticides, and waste disposal, leading to degradation of soil quality and adverse effects on plant growth, ecosystems, and human health.</h5>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="plcard">
+                        <div class="text-center">
+                        <h3>Sound Pollution</h3>
+                        <div class="p-4">
+                        <h5>Sound pollution, or noise pollution, is the excessive and disruptive presence of unwanted sounds in the environment, often arising from human activities like traffic, industrial operations, and urban development, causing adverse effects on health and well-being.</h5>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+               
+               </div>
+            </div>
+        </div>
+         <br/>
+     <br/>
+       
+      
+    
+        <div class="container col-12" id="Causes">
+            <h3 style="color: rgba(11, 11, 11, 0.975);text-decoration: underline;">Causes of Environmental Pollution</h3>
+        </div>
+        
+<br/>
+    
+            <div class="webandtechnologysection">
+            <div class="container-fluid">
+                <div class="row">
+                 
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705416957/human_mz5my6.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Industrial Emissions</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+<h5>Factories and industrial facilities release pollutants into the air and water. These emissions may include particulate matter, sulfur dioxide, nitrogen oxides, and various chemicals, depending on the industry.</h5>
+                        </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+    
+              
+    
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705418040/vehicleem_ba2t4r.png" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Vehicle Emissions</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+<h5> Combustion of fossil fuels in vehicles, such as cars, trucks, and airplanes, releases pollutants like carbon monoxide, nitrogen oxides, hydrocarbons, and particulate matter into the air.</h5>
+                                   </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705418292/ind_kqzm4j.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Power Plants</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>The burning of fossil fuels (coal, oil, and natural gas) in power plants contributes to air pollution by emitting pollutants such as sulfur dioxide, nitrogen oxides, and greenhouse gases like carbon dioxide.</h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705418855/agri_fnk5ns.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Agricultural Activities</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>The use of pesticides, herbicides, and fertilizers in agriculture can result in water and soil pollution. Runoff from agricultural areas can carry these chemicals into rivers and lakes.</h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 ">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="d-flex flex-column">
+                                            <div class="imagesection">
+                                                <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705419049/waste_mkkxsj.jpg" class="image"/>
+                                            </div>
+                                            <div class="headingsection">
+                                                <h3>Waste Disposal</h3>
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="parasection">
+                                            <h5>Incorrect disposal of solid and hazardous waste, including plastics and electronic waste, can lead to soil and water pollution. Improperly managed landfills may produce harmful leachate that contaminates groundwater.</h5>
+                                        </div> 
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705419184/defores_oarp1p.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Deforestation</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>Clearing large areas of forests for agriculture, logging, or urban development contributes to habitat loss and disrupts ecosystems. This can lead to soil erosion, loss of biodiversity, and changes in local climates.</h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-12 col-lg-3 ">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="d-flex flex-column">
+                                            <div class="imagesection">
+                                                <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705419362/mining_rm0q6k.jpg" class="image"/>
+                                            </div>
+                                            <div class="headingsection">
+                                                <h3>Mining Activities</h3>
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="parasection">
+                                            <h5>Mining operations release pollutants into the air and water, including heavy metals, sulfur compounds, and sediment. These pollutants can have detrimental effects on aquatic ecosystems and surrounding land.</h5>
+                                        </div> 
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                
+                            <div class="col-12 col-lg-3 ">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="d-flex flex-column">
+                                                <div class="imagesection">
+                                                    <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705419865/airborne_g7qdnr.jpg" class="image"/>
+                                                </div>
+                                                <div class="headingsection">
+                                                    <h3>Airborne Pollutants</h3>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="parasection">
+                                                <h5> Residential heating, open burning of waste, and other activities release pollutants into the air, contributing to outdoor and indoor air pollution.</h5>
+                                            </div> 
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                </div>
+            </div>
+        </div>
+        <br/>
+
+<div class="container col-12" id="Ways">
+            <h3 style="color: rgba(11, 11, 11, 0.975);text-decoration: underline;">Environmental Protection</h3>
+        </div>
+     
+        
+        <div class="container col-12">
+            <p class="para">
+                Environmental protection refers to the practice of safeguarding and managing the natural world to prevent or minimize the negative impact of human activities. It involves measures and initiatives aimed at preserving ecosystems, biodiversity, and natural resources, as well as mitigating and adapting to environmental challenges such as pollution, climate change, deforestation, and habitat destruction.The goal of environmental protection is to maintain the balance of ecosystems, ensure sustainable development, and safeguard the well-being of both present and future generations. It encompasses a wide range of activities, policies, and practices, including conservation efforts, waste reduction, sustainable resource management, pollution control, and the promotion of renewable energy sources.
+                Governments, non-governmental organizations (NGOs), businesses, and individuals all play crucial roles in environmental protection. International cooperation and agreements are also essential for addressing global environmental issues. Ultimately, the concept of environmental protection recognizes the interconnectedness of all living organisms and the importance of preserving the Earth's natural systems for a healthier and more sustainable future.        </div>
+        <br/> 
+
+
+
+        <div class="container col-12">
+            <h3 style="text-decoration: underline;">Ways to protect Environment</h3>
+        </div>
+        <br/>
+         <div class="wayssection" style="background-color: rgba(5, 5, 5, 0.111);">
+            <div class="container">
+                <div class="row">
+                <div class="col-4 m-4">
+                    <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705676214/3r_mf0wry.jpg" style="width: 300px;"/>
+                </div>
+            <div class="col-7 p-2 mt-4 ml-4">
+                <h5><span style="color:darkblue;font-size: 30px;">* Reduce, Reuse, Recycle:</span>
+                    <br/>
+                    * Reduce: Minimize your consumption by buying only what you need. Avoid single-use items and choose products with minimal packaging.
+                    <br/>
+                    * Reuse: Use durable items, and when possible, repurpose or donate items instead of discarding them.
+                    <br/>
+                    * Recycle: Dispose of waste responsibly by recycling materials such as paper, glass, plastic, and metal. Follow local recycling guidelines.</h5>
+            </div>
+            </div> 
+        </div> 
+        </div>
+        <br/>  
+        <div class="wayssection" >
+            <div class="container">
+                <div class="row">
+                
+            <div class="col-7 p-2 mt-4 ml-4">
+                <h5><span style="color:darkblue;font-size: 30px;">* Plant Trees and Maintain Green Spaces:</span>
+                    <br/>
+                    * Trees absorb carbon dioxide and provide oxygen. Participate in tree-planting initiatives and support reforestation projects.
+                    <br/>
+                    * Contribute to the maintenance and preservation of local parks and green spaces.
+            </div>
+                <div class=" col-4 ml-4 m-4">
+                    <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705677168/pl_xz1j1v.jpg" style="width: 300px;"/>
+                </div>
+
+                </div>
+            </div> 
+        </div>   
+       <br/>
+       <div class="wayssection" style="background-color: rgba(5, 5, 5, 0.111);">
+        <div class="container">
+            <div class="row">
+            <div class="col-4 m-4">
+                <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705677984/eco_hq9kpg.jpg" style="width: 300px;"/>
+            </div>
+        <div class="col-7 p-2 mt-4 ml-4">
+            <h5><span style="color:darkblue;font-size: 30px;">* Minimize Chemical Usage:</span>
+                <br/>
+                * Use eco-friendly and non-toxic household cleaning products.
+                <br/>
+                * Dispose of hazardous waste properly.
+
+        </div>
+        </div> 
+    </div> 
+    </div>
+    <br/>  
+    <div class="wayssection" >
+        <div class="container">
+            <div class="row">
+            
+        <div class="col-7 p-2 mt-4 ml-4 mr-3">
+            <h5><span style="color:darkblue;font-size: 30px;">* Educate Others:            </span>
+                <br/>
+                * Share information about environmental issues and solutions with friends, family, and colleagues.
+                <br/>
+                * Encourage others to adopt eco-friendly practices.
+        </div>
+            <div class="col-4 m-4">
+                <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705678147/edu_pod0qu.jpg" style="width: 300px;"/>
+            </div>
+
+            </div>
+        </div> 
+    </div> 
+     
+   <br/>
+   <div class="wayssection" style="background-color: rgba(5, 5, 5, 0.111);">
+    <div class="container">
+        <div class="row">
+        <div class="col-4 m-4">
+            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705679070/burn_m6maga.jpg" style="width: 300px;"/>
+        </div>
+    <div class="col-7 p-2 mt-4 ml-4">
+        <h5><span style="color:darkblue;font-size: 30px;">* Don't burn Garbage:</span>
+            <br/>
+            * Burning garbage emits harmful pollutants such as particulate matter, carbon monoxide, nitrogen oxides, and volatile organic compounds into the air.
+            <br/>
+            * These pollutants can lead to respiratory issues, exacerbate existing health problems, and contribute to poor air quality.
+
+    </div>
+    </div> 
+</div> 
+</div>
+<br/>  
+<div class="wayssection" >
+    <div class="container">
+        <div class="row">
+        
+    <div class="col-7 p-2 mt-4 ml-4 mr-3">
+        <h5><span style="color:darkblue;font-size: 30px;">* Proper Waste Disposal:           </span>
+            <br/>
+            * Dispose of household chemicals, pharmaceuticals, and hazardous waste at designated collection sites.
+            <br/>
+            * Avoid pouring pollutants, such as oil, paint, or cleaning chemicals, down drains or stormwater systems.
+    </div>
+        <div class="col-4 m-4">
+            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1705680057/proper_k9bvep.jpg" style="width: 300px;"/>
+        </div>
+
+        </div>
+    </div> 
+</div> 
+</div>  
+<br/>
+
+<div class="contactsection" id="contact">
+
+    <div class="container-fluid">
+        <h4><span><i class="fa-solid fa-phone" style="font-size: 20px;margin:2%"></i>
+        </span>Contact Us: +91 8291028067</h4>
+        <h4><span><i class="fa-brands fa-square-facebook" style="font-size: 30px;margin:2%"></i>
+        </span>Link</h4>
+        <h4><span><i class="fa-brands fa-square-twitter" style="font-size: 30px;margin:2%"></i>
+        </span>Link</h4>
+    </div>
+    </div>
+</div>
+</div>
+ 
+    
+</body>
+</html>
